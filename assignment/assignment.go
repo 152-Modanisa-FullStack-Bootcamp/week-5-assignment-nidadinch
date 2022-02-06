@@ -99,5 +99,28 @@ func VariadicSet2(i ...interface{}) []interface{} {
 
 // Implementation for Final Boss using traditional method
 func VariadicSet(i ...interface{}) []interface{} {
-	return nil
+	var result []interface{}
+	contains := false
+	for j := 0; j < len(i); j++ {
+		for k := 0; k < len(result); k++ {
+			if result[k] == i[j] {
+				contains = true
+				continue
+			}
+		}
+		if !contains {
+			result = append(result, i[j])
+		}
+	}
+	return result
+}
+
+// Contains function to make comparisons with generic type
+func Contains(list []interface{}, element interface{}) bool {
+	for _, v := range list {
+		if v == element {
+			return true
+		}
+	}
+	return false
 }
