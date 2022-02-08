@@ -38,8 +38,6 @@ func AlphabetSoup(s string) string {
 
 func StringMask(s string, n uint) string {
 	var resultStr string
-	str1 := s[:n]
-	str2 := s[n:]
 
 	if len(s) == 0 {
 		return "*"
@@ -51,6 +49,8 @@ func StringMask(s string, n uint) string {
 		}
 		return resultStr
 	}
+	str1 := s[:n]
+	str2 := s[n:]
 
 	for i := 0; i < len(str2); i++ {
 		resultStr += "*"
